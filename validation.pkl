@@ -1,6 +1,0 @@
-import pandas as pd
-import pickle
-from sklearn.datasets import load_diabetes
-from sklearn.model_selection import train_test_split
-from xgboost import XGBClassifier
-pickle.dump(validation, open('validation.pkl', 'wb'))
