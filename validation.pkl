@@ -1,0 +1,27 @@
+import pandas as pd
+import pickle
+from sklearn.datasets import load_diabetes
+from sklearn.model_selection import train_test_split
+from xgboost import XGBClassifier
+import matplotlib.pyplot as plt
+import tensorflow as tf
+import cv2
+import os
+import numpy as np
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.optimizers import RMSprop
+train = ImageDataGenerator(rescale=1/255)
+validation = ImageDataGenerator(rescale= 1/255)
+rain_dataset = train.flow_from_directory('/content/drive/MyDrive/dataset/train/',
+                                          target_size=(200,200),
+                                          batch_size=3,
+                                          class_mode='categorical')
+
+validation_dataset = validation.flow_from_directory('/content/drive/MyDrive/dataset/validation/',
+                                          target_size=(200,200),
+                                          batch_size=3,
+                                          class_mode='categorical')
+                                          from google.colab import drive
+drive.mount('/content/drive')
+pickle.dump(validation, open('validation.pkl', 'wb'))
